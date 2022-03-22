@@ -29,7 +29,7 @@ public class GetProductPriceUseCaseTest {
 
 	@Test
 	@DisplayName("When GetProductPriceUseCaseTest is called execute should return a response ok with a product")
-	public void whenExecuteIsOk() {
+	 void whenExecuteIsOk() {
 		when(priceRepository.findPriceByProductIdAndBrandIdAndApplicationDate( any(LocalDateTime.class), any(Long.class), any(Long.class))).thenReturn(PriceFaker.createPriceProduct());
 		
 		Price priceCurrent= getProductPriceUseCase.execute(35455L, PriceFaker.createLocalDateTimeMock("2020-06-15 11:00:00"), 1L);
@@ -41,14 +41,14 @@ public class GetProductPriceUseCaseTest {
 
 	@Test
 	@DisplayName("When GetProductPriceUseCaseTest is called execute should return a error not found")
-	public void whenExecuteReturnNotFound() {
+	void whenExecuteReturnNotFound() {
 		when(priceRepository.findPriceByProductIdAndBrandIdAndApplicationDate( any(LocalDateTime.class), any(Long.class), any(Long.class))).thenThrow(new ResourceNotFoundException());
         assertThrows(ResourceNotFoundException.class ,()-> getProductPriceUseCase.execute(35455L, PriceFaker.createLocalDateTimeMock("2020-06-15 11:00:00"), 1L));
 	}
 
 	@Test
 	@DisplayName("When GetProductPriceUseCaseTest is called execute should return a generic exception")
-	public void whenExecuteReturnGenericError() {
+	void whenExecuteReturnGenericError() {
 		when(priceRepository.findPriceByProductIdAndBrandIdAndApplicationDate( any(LocalDateTime.class), any(Long.class), any(Long.class))).thenThrow(new GenericException());
 		assertThrows(GenericException.class ,()-> getProductPriceUseCase.execute(35455L, PriceFaker.createLocalDateTimeMock("2020-06-15 11:00:00"), 1L));
 	}

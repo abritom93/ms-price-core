@@ -28,7 +28,7 @@ public class PriceJdbcAdapterTest {
 	private PriceJpaAdapter priceJdbcAdapter;
 	
 	@Test
-	public void whenFindPriceByProductIdAndBrandIdAndApplicationDateIsOk() {
+	 void whenFindPriceByProductIdAndBrandIdAndApplicationDateIsOk() {
 		when(priceJpaRepository.findAllByBrandIdAndProductIdAndApplicationDate(any(LocalDateTime.class),any(Long.class),any(Long.class))).thenReturn(PriceFaker.createPriceProductEntity());
 		
 		Price priceCurrent= priceJdbcAdapter.findPriceByProductIdAndBrandIdAndApplicationDate(PriceFaker.createLocalDateTimeMock("2020-06-15 11:00:00"), 35455L, 1L);
@@ -38,7 +38,7 @@ public class PriceJdbcAdapterTest {
 	}
 
 	@Test
-	public void whenFindPriceByProductIdAndBrandIdAndApplicationDateNotFound() {
+	 void whenFindPriceByProductIdAndBrandIdAndApplicationDateNotFound() {
 		when(priceJpaRepository.findAllByBrandIdAndProductIdAndApplicationDate(PriceFaker.createLocalDateTimeMock("2020-06-15 11:00:00"),35455L,1L)).thenReturn(Optional.empty());
 
 		ResourceNotFoundException priceNotFound= assertThrows(ResourceNotFoundException.class,()->priceJdbcAdapter.findPriceByProductIdAndBrandIdAndApplicationDate(PriceFaker.createLocalDateTimeMock("2020-06-15 11:00:00"), 35455L, 1L)) ;
@@ -49,7 +49,7 @@ public class PriceJdbcAdapterTest {
 	}
 
 	@Test
-	public void whenFindPriceByProductIdAndBrandIdAndApplicationDateGenericError() {
+	void whenFindPriceByProductIdAndBrandIdAndApplicationDateGenericError() {
 		when(priceJpaRepository.findAllByBrandIdAndProductIdAndApplicationDate(PriceFaker.createLocalDateTimeMock("2020-06-15 11:00:00"),35455L,1L)).thenThrow(MappingException.class);
 
 		assertThrows(GenericException.class,()->priceJdbcAdapter.findPriceByProductIdAndBrandIdAndApplicationDate(PriceFaker.createLocalDateTimeMock("2020-06-15 11:00:00"), 35455L, 1L)) ;
