@@ -1,2 +1,2 @@
 # ms-price-core
-Microservice that allow query for price a product
+Service that allows to get price of a product
