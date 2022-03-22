@@ -21,7 +21,7 @@ public class ApplicationTest {
 	private PriceJpaAdapter priceJdbcAdapter;
 	
 	@Test
-	public void loadContext(){
+	void loadContext(){
 		Application.main(new String[] {});
 		assertNotNull(priceController);
 		assertNotNull(getProductPriceUseCase);

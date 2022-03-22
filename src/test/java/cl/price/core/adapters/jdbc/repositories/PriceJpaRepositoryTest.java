@@ -17,7 +17,7 @@ public class PriceJpaRepositoryTest {
 	 private PriceJpaRepository priceJpaRepository;
 
 	 @Test
-	 public void whenFindPriceProductIsOk() {
+	 void whenFindPriceProductIsOk() {
 
 		    Optional<PriceEntity> priceProduct = priceJpaRepository.findAllByBrandIdAndProductIdAndApplicationDate(PriceFaker.createLocalDateTimeMock("2020-06-17 11:00:00"),35455L,1L);
 
@@ -31,7 +31,7 @@ public class PriceJpaRepositoryTest {
 	 }
 	 
 	 @Test
-	 public void whenFindPriceProductIsEmpty() {
+	 void whenFindPriceProductIsEmpty() {
 	        Optional<PriceEntity> priceProduct = priceJpaRepository.findAllByBrandIdAndProductIdAndApplicationDate(PriceFaker.createLocalDateTimeMock("2021-06-17 11:00:00"),35455L,1L);
 
 			assertEquals(priceProduct, Optional.empty());
