@@ -9,9 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import cl.price.core.adapters.controllers.dto.PriceDto;
 import cl.price.core.application.port.in.GetPriceQuery;
+import cl.price.core.config.exceptions.models.ExceptionResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping(value = "/api/v1.0/price")
@@ -25,6 +29,13 @@ public class PriceController {
 		this.getPriceQuery = getPriceQuery;
 	}
 
+	@ApiOperation(value = "Query price for a one product")
+	@ApiResponses({
+		@ApiResponse(code = 200,response = PriceDto.class, message = "OK" ),
+		@ApiResponse(code = 404,response = ExceptionResponse.class,message = "Price not found" ),
+		@ApiResponse(code = 400,response = ExceptionResponse.class,message = "Bad request" ),
+		@ApiResponse(code = 500,response = ExceptionResponse.class,message = "Internal server error" )
+	})	
 	@GetMapping
 	public ResponseEntity<PriceDto> queryPrice(
 			@RequestParam  Long productId,
