@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import cl.price.core.adapters.controllers.dto.PriceDto;
 import cl.price.core.application.port.in.GetPriceQuery;
 import cl.price.core.config.exceptions.models.ExceptionResponse;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
