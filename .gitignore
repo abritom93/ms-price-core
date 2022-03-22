@@ -27,3 +27,5 @@ bin
 .project
 .classpath
 .springBeans
+.gradle
+build
