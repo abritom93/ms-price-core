@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="cl.price.core.adapters.jdbc.PriceJdbcAdapterTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-03-22T13:17:24" hostname="DESKTOP-IUPB6SR" time="0.255">
-  <properties/>
-  <testcase name="whenFindPriceByProductIdAndBrandIdAndApplicationDateIsOk()" classname="cl.price.core.adapters.jdbc.PriceJdbcAdapterTest" time="0.246"/>
-  <testcase name="whenFindPriceByProductIdAndBrandIdAndApplicationDateGenericError()" classname="cl.price.core.adapters.jdbc.PriceJdbcAdapterTest" time="0.005"/>
-  <testcase name="whenFindPriceByProductIdAndBrandIdAndApplicationDateNotFound()" classname="cl.price.core.adapters.jdbc.PriceJdbcAdapterTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
