@@ -7,7 +7,7 @@ import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.library.Architectures;
 
 @AnalyzeClasses(packages = "cl.price.core", importOptions = ImportOption.DoNotIncludeTests.class)
-public class LayeredArchitectureTest {
+class LayeredArchitectureTest {
 
     private static final String DOMAIN = "Domain";
     private static final String ADAPTERS = "Adapters";

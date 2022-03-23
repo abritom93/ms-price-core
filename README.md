@@ -8,6 +8,7 @@ Service that allows the consultation of the price of a product given a date, pro
 
 ### Technical requirements:
 - Java jdk 11
+- Gradle 7.4.1
 
 Clone repository
 ```sh
@@ -18,10 +19,6 @@ cd ms-price-core
 Run service
 ```sh
 gradlew bootRun
-```
-Url swagger
-```sh
-http://localhost:8081/swagger-ui.html
 ```
 
 Run test

@@ -9,7 +9,7 @@ import cl.price.core.adapters.jdbc.PriceJpaAdapter;
 import cl.price.core.application.usecases.GetPriceUseCase;
 
 @SpringBootTest
-public class ApplicationTest {
+class ApplicationTest {
 
 	@Autowired
 	private PriceController priceController;
