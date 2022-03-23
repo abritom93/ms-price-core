@@ -1,7 +1,6 @@
 package cl.price.core.adapters.jdbc;
 
 import java.time.LocalDateTime;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import cl.price.core.adapters.jdbc.entities.PriceEntity;
 import cl.price.core.adapters.jdbc.repositories.PriceJpaRepository;
@@ -17,7 +16,6 @@ public class PriceJpaAdapter implements PriceRepository{
 
 	private final PriceJpaRepository priceJpaRepository;
 
-	@Autowired
 	public PriceJpaAdapter(PriceJpaRepository priceJpaRepository) {
 		this.priceJpaRepository = priceJpaRepository;
 	}
