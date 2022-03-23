@@ -22,7 +22,7 @@ import cl.price.core.faker.PriceFaker;
 @WebMvcTest(controllers = PriceController.class)
 public class PriceControllerTest {
 
-	private static final String URL_GET_PRICE= "/api/v1.0/price";
+	private static final String URL_GET_PRICE= "/price";
 	
 	@MockBean
 	private GetPriceQuery getProductPriceQuery;
