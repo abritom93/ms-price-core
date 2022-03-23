@@ -1,7 +1,6 @@
 package cl.price.core.application.usecases;
 
 import java.time.LocalDateTime;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import cl.price.core.application.port.in.GetPriceQuery;
 import cl.price.core.application.port.out.PriceRepository;
@@ -12,7 +11,6 @@ public class GetPriceUseCase implements GetPriceQuery {
 
 	private final PriceRepository priceRepository;
 
-	@Autowired
 	public GetPriceUseCase(PriceRepository priceRepository) {
 		this.priceRepository = priceRepository;
 	}
