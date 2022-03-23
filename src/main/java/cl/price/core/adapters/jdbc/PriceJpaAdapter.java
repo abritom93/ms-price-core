@@ -26,6 +26,7 @@ public class PriceJpaAdapter implements PriceRepository{
 	public Price findPriceByProductIdAndBrandIdAndApplicationDate(LocalDateTime applicationDate, Long productId, Long brandId) {
 		
 		try {
+		
 			return priceJpaRepository.findAllByBrandIdAndProductIdAndApplicationDate(applicationDate, productId, brandId)
 					.map(PriceEntity::toDomain)
 					.orElseThrow(()-> new ResourceNotFoundException(String.format(ERROR_PRICE_NOT_FOUND, productId,brandId,applicationDate)))	;

@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
-@RequestMapping(value = "/api/v1.0/price")
+@RequestMapping(value = "/price")
 public class PriceController {	
 	
 	private final GetPriceQuery getPriceQuery;
@@ -38,7 +38,7 @@ public class PriceController {
 	@GetMapping
 	public ResponseEntity<PriceDto> queryPrice(
 			@RequestParam  Long productId,
-			@RequestParam @DateTimeFormat(pattern = DATE_PATTERN) LocalDateTime applicationDate,
+			@RequestParam @DateTimeFormat(pattern = DATE_PATTERN,fallbackPatterns = "yyyy-MM-dd HH:mm:ss") LocalDateTime applicationDate,
 			@RequestParam  Long brandId ) {			
 		PriceDto priceDto= PriceDto.of(getPriceQuery.execute(productId,applicationDate,brandId),applicationDate);
 		
