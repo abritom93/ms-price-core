@@ -38,7 +38,7 @@ public class PriceController {
 	@GetMapping
 	public ResponseEntity<PriceDto> queryPrice(
 			@RequestParam  Long productId,
-			@RequestParam @DateTimeFormat(pattern = DATE_PATTERN,fallbackPatterns = "yyyy-MM-dd HH:mm:ss") LocalDateTime applicationDate,
+			@RequestParam @DateTimeFormat(pattern = DATE_PATTERN) LocalDateTime applicationDate,
 			@RequestParam  Long brandId ) {			
 		PriceDto priceDto= PriceDto.of(getPriceQuery.execute(productId,applicationDate,brandId),applicationDate);
 		
