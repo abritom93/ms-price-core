@@ -32,12 +32,12 @@ public class PriceControllerIntegrationTest {
 	 
 	 @Test
 	 @DisplayName("Test 1: peticion a las 10:00 del dia 14 del producto 35455 para la brand 1 (ZARA)")
-	 void getPriceProductSuccess() throws Exception{
+	 void getPriceProductFirstTest() throws Exception{
 		 
-		 MultiValueMap<String, String> params1= new LinkedMultiValueMap<>();
-		 params1.add("productId", "35455");
-		 params1.add("brandId", "1");
-		 params1.add("applicationDate", "2020-06-14 10:00:00");
+		 MultiValueMap<String, String> params= new LinkedMultiValueMap<>();
+		 params.add("productId", "35455");
+		 params.add("brandId", "1");
+		 params.add("applicationDate", "2020-06-14 10:00:00");
 		 
 		 PriceDto priceDto1= PriceDto.builder()
 				 .applicationDate(PriceFaker.createLocalDateTimeMock("2020-06-14 10:00:00"))
@@ -48,7 +48,7 @@ public class PriceControllerIntegrationTest {
 				 .build();
 		 
 	        this.mockMvc.perform(
-	        					get(URL_GET_PRICE).params(params1)
+	        					get(URL_GET_PRICE).params(params)
 	                      )
 	                .andDo(print())
 	                .andExpect(status().isOk())
@@ -57,12 +57,12 @@ public class PriceControllerIntegrationTest {
 
 	@Test
 	@DisplayName("Test 2: peticion a las 16:00 del dia 14 del producto 35455 para la brand 1 (ZARA)")
-	void getPriceProductSuccess2() throws Exception{
+	void getPriceProductSuccessSecondTest() throws Exception{
 
-		MultiValueMap<String, String> params2= new LinkedMultiValueMap<>();
-		params2.add("productId", "35455");
-		params2.add("brandId", "1");
-		params2.add("applicationDate", "2020-06-14 16:00:00");
+		MultiValueMap<String, String> params= new LinkedMultiValueMap<>();
+		params.add("productId", "35455");
+		params.add("brandId", "1");
+		params.add("applicationDate", "2020-06-14 16:00:00");
 
 		PriceDto priceDto1= PriceDto.builder()
 				.applicationDate(PriceFaker.createLocalDateTimeMock("2020-06-14 16:00:00"))
@@ -73,7 +73,7 @@ public class PriceControllerIntegrationTest {
 				.build();
 
 		this.mockMvc.perform(
-						get(URL_GET_PRICE).params(params2)
+						get(URL_GET_PRICE).params(params)
 				)
 				.andDo(print())
 				.andExpect(status().isOk())
@@ -82,12 +82,12 @@ public class PriceControllerIntegrationTest {
 
 	@Test
 	@DisplayName("Test 3: peticion a las 21:00 del dia 14 del producto 35455 para la brand 1 (ZARA)")
-	void getPriceProductSuccess3() throws Exception{
+	void getPriceProductSuccessThirdTest() throws Exception{
 
-		MultiValueMap<String, String> params3= new LinkedMultiValueMap<>();
-		params3.add("productId", "35455");
-		params3.add("brandId", "1");
-		params3.add("applicationDate", "2020-06-14 21:00:00");
+		MultiValueMap<String, String> params= new LinkedMultiValueMap<>();
+		params.add("productId", "35455");
+		params.add("brandId", "1");
+		params.add("applicationDate", "2020-06-14 21:00:00");
 
 		PriceDto priceDto1= PriceDto.builder()
 				.applicationDate(PriceFaker.createLocalDateTimeMock("2020-06-14 21:00:00"))
@@ -98,7 +98,7 @@ public class PriceControllerIntegrationTest {
 				.build();
 
 		this.mockMvc.perform(
-						get(URL_GET_PRICE).params(params3)
+						get(URL_GET_PRICE).params(params)
 				)
 				.andDo(print())
 				.andExpect(status().isOk())
@@ -107,12 +107,12 @@ public class PriceControllerIntegrationTest {
 
 	@Test
 	@DisplayName("Test 4: peticion a las 10:00 del dia 15 del producto 35455 para la brand 1 (ZARA)")
-	void getPriceProductSuccess4() throws Exception{
+	void getPriceProductSuccessFourthTest() throws Exception{
 
-		MultiValueMap<String, String> params4= new LinkedMultiValueMap<>();
-		params4.add("productId", "35455");
-		params4.add("brandId", "1");
-		params4.add("applicationDate", "2020-06-15 10:00:00");
+		MultiValueMap<String, String> params= new LinkedMultiValueMap<>();
+		params.add("productId", "35455");
+		params.add("brandId", "1");
+		params.add("applicationDate", "2020-06-15 10:00:00");
 
 		PriceDto priceDto1= PriceDto.builder()
 				.applicationDate(PriceFaker.createLocalDateTimeMock("2020-06-15 10:00:00"))
@@ -123,7 +123,7 @@ public class PriceControllerIntegrationTest {
 				.build();
 
 		this.mockMvc.perform(
-						get(URL_GET_PRICE).params(params4)
+						get(URL_GET_PRICE).params(params)
 				)
 				.andDo(print())
 				.andExpect(status().isOk())
@@ -132,7 +132,7 @@ public class PriceControllerIntegrationTest {
 
 	@Test
 	@DisplayName("Test 5: peticion a las 21:00 del dia 16 del producto 35455 para la brand 1 (ZARA)")
-	void getPriceProductSuccess5() throws Exception{
+	void getPriceProductSuccessFifthTest() throws Exception{
 
 		MultiValueMap<String, String> params5= new LinkedMultiValueMap<>();
 		params5.add("productId", "35455");
