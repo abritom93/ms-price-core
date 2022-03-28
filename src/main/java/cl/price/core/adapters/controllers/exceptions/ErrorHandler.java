@@ -1,13 +1,15 @@
-package cl.price.core.config.exceptions;
+package cl.price.core.adapters.controllers.exceptions;
 
 import javax.servlet.http.HttpServletRequest;
+import cl.price.core.config.exceptions.GenericException;
+import cl.price.core.config.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import cl.price.core.config.exceptions.models.ExceptionResponse;
+import cl.price.core.adapters.controllers.exceptions.model.ExceptionResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @RestControllerAdvice
