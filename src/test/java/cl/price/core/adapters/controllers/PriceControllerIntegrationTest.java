@@ -34,8 +34,7 @@ class PriceControllerIntegrationTest {
 	 void getPriceProductFirstTest() throws Exception{
 
 		 MultiValueMap<String, String> params=  PriceFaker.createParamsQueryPriceProduct("35455","1","2020-06-14 10:00:00");
-
-		 PriceDto priceDto= PriceFaker.createPriceProductDto(1L,35455L,1L,new BigDecimal("35.50"),"2020-06-14 10:00:00");
+		 PriceDto priceDto= PriceFaker.createPriceProductDto(1L,35455L,1L,new BigDecimal("35.50"),"2020-06-14 00:00:00","2020-12-31 23:59:59");
 
 		 this.mockMvc.perform(
 	        					get(URL_GET_PRICE).params(params)
@@ -50,8 +49,7 @@ class PriceControllerIntegrationTest {
 	void getPriceProductSuccessSecondTest() throws Exception{
 
 		MultiValueMap<String, String> params=  PriceFaker.createParamsQueryPriceProduct("35455","1","2020-06-14 16:00:00");
-
-		PriceDto priceDto= PriceFaker.createPriceProductDto(1L,35455L,2L,new BigDecimal("25.45"),"2020-06-14 16:00:00");
+		PriceDto priceDto= PriceFaker.createPriceProductDto(1L,35455L,2L,new BigDecimal("25.45"),"2020-06-14 15:00:00","2020-06-14 18:30:00");
 
 		this.mockMvc.perform(
 						get(URL_GET_PRICE).params(params)
@@ -67,7 +65,7 @@ class PriceControllerIntegrationTest {
 
 		MultiValueMap<String, String> params=  PriceFaker.createParamsQueryPriceProduct("35455","1","2020-06-14 21:00:00");
 
-		PriceDto priceDto= PriceFaker.createPriceProductDto(1L,35455L,1L,new BigDecimal("35.50"),"2020-06-14 21:00:00");
+		PriceDto priceDto= PriceFaker.createPriceProductDto(1L,35455L,1L,new BigDecimal("35.50"),"2020-06-14 00:00:00","2020-12-31 23:59:59");
 
 		this.mockMvc.perform(
 						get(URL_GET_PRICE).params(params)
@@ -82,8 +80,7 @@ class PriceControllerIntegrationTest {
 	void getPriceProductSuccessFourthTest() throws Exception{
 
 		MultiValueMap<String, String> params=  PriceFaker.createParamsQueryPriceProduct("35455","1","2020-06-15 10:00:00");
-
-		PriceDto priceDto= PriceFaker.createPriceProductDto(1L,35455L,3L,new BigDecimal("30.50"),"2020-06-15 10:00:00");
+		PriceDto priceDto= PriceFaker.createPriceProductDto(1L,35455L,3L,new BigDecimal("30.50"),"2020-06-15 00:00:00","2020-06-15 11:00:00");
 
 		this.mockMvc.perform(
 						get(URL_GET_PRICE).params(params)
@@ -98,8 +95,7 @@ class PriceControllerIntegrationTest {
 	void getPriceProductSuccessFifthTest() throws Exception{
 
 		MultiValueMap<String, String> params=  PriceFaker.createParamsQueryPriceProduct("35455","1","2020-06-16 21:00:00");
-
-		PriceDto priceDto= PriceFaker.createPriceProductDto(1L,35455L,4L,new BigDecimal("38.95"),"2020-06-16 21:00:00");
+		PriceDto priceDto= PriceFaker.createPriceProductDto(1L,35455L,4L,new BigDecimal("38.95"),"2020-06-15 16:00:00","2020-12-31 23:59:59");
 
 		this.mockMvc.perform(
 						get(URL_GET_PRICE).params(params)
@@ -107,6 +103,40 @@ class PriceControllerIntegrationTest {
 				.andDo(print())
 				.andExpect(status().isOk())
 				.andExpect(content().json(objectMapper.writeValueAsString(priceDto)));
+	}
+	
+	@Test
+	@DisplayName("Test not found price: request to the 21:00 of day 16 of year 2021 given product with id 35455 and id brand 1 (ZARA) return error for not found")
+	void getPriceProductNotFoundFifthTest() throws Exception{
+		MultiValueMap<String, String> params=  PriceFaker.createParamsQueryPriceProduct("35455","1","2021-06-16 21:00:00");
+		this.mockMvc.perform(
+						get(URL_GET_PRICE).params(params)
+				)
+				.andDo(print())
+				.andExpect(status().is4xxClientError());
+	}
+	
+	@Test
+	@DisplayName("Test missing params: request without params return error for missing params")
+	void getPriceProductMissingParamsFifthTest() throws Exception{
+
+		this.mockMvc.perform(
+						get(URL_GET_PRICE)
+				)
+				.andDo(print())
+				.andExpect(status().is4xxClientError());
+	}
+	
+	@Test
+	@DisplayName("Test method argument type mismatch: request to the 21:00 of day 16 given product with id 35455 and id brand test return error for method argument type mismatch")
+	void getPriceProductMethodArgumentTypeMismatchFifthTest() throws Exception{
+		MultiValueMap<String, String> params=  PriceFaker.createParamsQueryPriceProduct("35455","test","2020-06-16 21:00:00");
+		
+		this.mockMvc.perform(
+						get(URL_GET_PRICE).params(params)
+				)
+				.andDo(print())
+				.andExpect(status().is4xxClientError());
 	}
 	
 }
