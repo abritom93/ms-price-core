@@ -113,7 +113,7 @@ class PriceControllerIntegrationTest {
 						get(URL_GET_PRICE).params(params)
 				)
 				.andDo(print())
-				.andExpect(status().is4xxClientError());
+				.andExpect(status().isNotFound());
 	}
 	
 	@Test
@@ -124,7 +124,7 @@ class PriceControllerIntegrationTest {
 						get(URL_GET_PRICE)
 				)
 				.andDo(print())
-				.andExpect(status().is4xxClientError());
+				.andExpect(status().isBadRequest());
 	}
 	
 	@Test
@@ -136,7 +136,7 @@ class PriceControllerIntegrationTest {
 						get(URL_GET_PRICE).params(params)
 				)
 				.andDo(print())
-				.andExpect(status().is4xxClientError());
+				.andExpect(status().isBadRequest());
 	}
 	
 }
