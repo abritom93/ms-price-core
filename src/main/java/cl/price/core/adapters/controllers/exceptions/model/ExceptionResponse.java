@@ -1,4 +1,4 @@
-package cl.price.core.config.exceptions.models;
+package cl.price.core.adapters.controllers.exceptions.model;
 
 import lombok.Builder;
 import lombok.Value;

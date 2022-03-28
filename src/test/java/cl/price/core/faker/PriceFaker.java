@@ -11,13 +11,14 @@ public class PriceFaker {
 
 	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-	public static PriceDto createPriceProductDto(Long brandId,Long productId,Long priceList,BigDecimal price,String applicationDate) {
+	public static PriceDto createPriceProductDto(Long brandId,Long productId,Long priceList,BigDecimal price,String startDate,String endDate) {
 		return PriceDto.builder()
 				.brandId(brandId)
 				.productId(productId)
 				.priceList(priceList)
 				.price(price)
-				.applicationDate(LocalDateTime.parse(applicationDate,formatter))
+				.endDate(LocalDateTime.parse(endDate,formatter))
+				.startDate(LocalDateTime.parse(startDate,formatter))
 				.build();
 	}
 	

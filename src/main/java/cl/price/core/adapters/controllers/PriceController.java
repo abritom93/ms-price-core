@@ -27,7 +27,7 @@ public class PriceController {
 			@RequestParam  Long productId,
 			@RequestParam @DateTimeFormat(pattern = DATE_PATTERN) LocalDateTime applicationDate,
 			@RequestParam  Long brandId ) {			
-		PriceDto priceDto= PriceDto.of(getPriceQuery.execute(productId,applicationDate,brandId),applicationDate);
+		PriceDto priceDto= PriceDto.of(getPriceQuery.execute(productId,applicationDate,brandId));
 		
 		return new ResponseEntity<>(priceDto, HttpStatus.OK);
 	}	
